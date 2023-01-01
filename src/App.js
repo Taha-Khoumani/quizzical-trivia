@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 //functions:
 import { decodeEntities} from "./dependencies/functions.js";
-
+import { nanoid } from "nanoid";
 //custom components:
 import ListOfQuestions from "./dependencies/ListOfQuestions.js";
 
@@ -26,6 +26,7 @@ export default function App() {
       console.log(data.results)
       setQuesionsData(data.results.map(question =>(
         {
+          id:nanoid(),
           question:decodeEntities(question.question),
           incorrect_answers:question.incorrect_answers.map(i=>decodeEntities(i)),
           correct_answer:decodeEntities(question.correct_answer),
@@ -39,6 +40,7 @@ export default function App() {
     setGameState("test")
     setGameCount((prevGameCount)=>prevGameCount+1)
   }
+  console.log(questionsData.map(x=>x.user_answer))
   return (
     <main>
       <section className="background">
@@ -60,8 +62,8 @@ export default function App() {
       {
         gameState === "test" &&
         <section className="test">
-        <ListOfQuestions questionsData={questionsData}/>
-        <button>Check answers</button>
+        <ListOfQuestions questionsData={questionsData} setAnswer={setQuesionsData}/>
+        <button className="check-answers">Check answers</button>
         </section>
       }
     </main>

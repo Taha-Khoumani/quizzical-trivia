@@ -2,9 +2,16 @@
 import Question from "./Question"
 import { nanoid } from "nanoid"
 export default function ListOfQuestions(props){
-    const ListOfQestions = props.questionsData.map(question => <Question key={nanoid()} questionData={question}/>)
+    const ListOfQestions = props.questionsData.map(
+        (question,i,a) =>
+            <Question 
+                key={nanoid()} 
+                questionData={question}
+                setAnswer={props.setAnswer}
+            />
+    )
     return(
-        <div>
+        <div className="list-of-questions" >
             {ListOfQestions}
         </div>
     )
