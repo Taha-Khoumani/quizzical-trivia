@@ -37,6 +37,9 @@ main {
     width: 200px;
   }
 }
+.background .quizz-time {
+  width: 150px !important;
+}
 
 .landing-page {
   width: 100%;
@@ -46,6 +49,9 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 25px;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 .landing-page h1 {
   color: #293264;
@@ -55,10 +61,12 @@ main {
   margin: 0;
 }
 .landing-page p {
+  text-align: center;
   font-family: "Inter", "sans-serif";
   font-weight: 400;
   color: #293264;
   font-size: 16px;
+  margin: 0;
 }
 .landing-page button {
   min-width: 193px;
@@ -70,6 +78,25 @@ main {
   font-weight: 500;
   border-radius: 15px;
   border-width: 0;
+}
+.landing-page form {
+  border-width: 0.7px;
+  background-color: white;
+  border-radius: 5px;
+  border-color: #4D5B9E;
+  padding: 15px;
+  box-shadow: 0 0 5px 1px lightgray;
+}
+.landing-page form h3 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #293264;
+}
+.landing-page form label {
+  font-family: "Karla", "sans-serif";
+  color: #293264;
+  font-size: 18px;
+  margin: 0 0 15px 5px;
 }
 
 .test {
@@ -83,15 +110,15 @@ main {
   align-items: center;
   justify-content: space-evenly;
 }
-@media (max-width: 500px) {
-  .test {
-    padding: 0 30px;
-  }
-}
 @media (max-width: 750px) {
   .test {
     padding: 10px 50px 20px 50px;
     gap: 5px;
+  }
+}
+@media (max-width: 500px) {
+  .test {
+    padding: 10px 25px;
   }
 }
 .test .list-of-questions {
@@ -188,7 +215,18 @@ main {
   width: 100%;
   margin-block: 5px 0;
 }
-.test .check-answers {
+.test .footer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.test .footer p {
+  color: #293264;
+  font-family: "Inter", "sans-serif";
+  font-weight: bold;
+  font-size: 18px;
+}
+.test .footer .check-answers {
   min-width: 193px;
   min-height: 52px;
   background-color: #4D5B9E;
@@ -201,7 +239,7 @@ main {
   margin: 0 auto;
 }
 @media (max-width: 500px) {
-  .test .check-answers {
+  .test .footer .check-answers {
     min-width: 128px;
     min-height: 35px;
     background-color: #4D5B9E;

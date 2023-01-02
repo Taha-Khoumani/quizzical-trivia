@@ -62,6 +62,9 @@ main{
         @include ipad(){width: 300px;}
         @include mobile(){width: 200px;}
     }
+    .quizz-time{
+        width: 150px !important;
+    }
 }
 //landing-page
 .landing-page{
@@ -72,6 +75,9 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 25px;
+    padding: 0 40px;
+    box-sizing: border-box;
     h1{
         color:$dark-blue;
         font-family: 'Karla', sans-serif;
@@ -80,13 +86,38 @@ main{
         margin:0;
     }
     p{
+        text-align: center;
         font-family: "Inter","sans-serif";
         font-weight: 400;
         color:$dark-blue;
         font-size: 16px;
+        margin:0;
+
     }
     button{
         @include button(193px,52px,15px )
+    }
+    form{
+        // margin-top: 20px;
+        // border-style: solid;
+        border-width:0.7px ;
+        background-color: white;
+        border-radius: 5px;
+        border-color:#4D5B9E;
+        padding: 15px;
+        box-shadow: 0 0 5px 1px lightgray;
+        h3{
+            margin-top: 0px;
+            margin-bottom: 10px;
+            color:$dark-blue
+        }
+        label{
+            font-family: "Karla","sans-serif";
+            color: $dark-blue;
+            font-size: 18px;
+            margin: 0 0 15px 5px;
+            // font-weight: bold;
+        }
     }
 }
 //
@@ -100,8 +131,8 @@ main{
     box-sizing: border-box;
     align-items: center;
     justify-content: space-evenly;
-    @include mobile(){padding:0 30px;}
     @include mobie-ipad(){padding: 10px 50px 20px 50px;gap:5px;}
+    @include mobile(){padding:10px 25px;}
     .list-of-questions{
         display: flex;
         align-items: flex-start;
@@ -156,9 +187,20 @@ main{
             }
         }
     }
-    .check-answers{
-        @include button(193px,52px,15px);
-        margin:0 auto;
-        @include mobile(){@include button(128px,35px,5px);}
+    .footer{
+        display: flex;
+        align-items: center;
+        gap:20px;
+        p{
+            color:$dark-blue;
+            font-family: "Inter","sans-serif";
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .check-answers{
+            @include button(193px,52px,15px);
+            margin:0 auto;
+            @include mobile(){@include button(128px,35px,5px);}
+        }
     }
 }

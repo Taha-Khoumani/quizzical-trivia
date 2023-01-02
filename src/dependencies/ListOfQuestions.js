@@ -8,6 +8,7 @@ export default function ListOfQuestions(props){
                 key={nanoid()} 
                 questionData={question}
                 setAnswer={props.setAnswer}
+                gameState={props.gameState}
             />
     )
     return(

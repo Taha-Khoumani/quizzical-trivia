@@ -1,15 +1,24 @@
 //Dependencies:
 import { nanoid } from "nanoid";
-import { shuffle } from "./functions";
 //React:
 export default function Question(props){
-    const {question,correct_answer,incorrect_answers,id} = props.questionData
-    const all_answers = shuffle([...incorrect_answers,correct_answer])
-    var handleClick = function (id){
-        return (function (event){
-            console.log(event.target)
-        })()
+    const {question,id,all_answers} = props.questionData
+    const clickedStyles = {
+        //clicked
+        backgroundColor:"#D6DBF5",
+        borderWidth:0,
+
+        //correct
+        // backgroundColor:"#94D7A2",
+
+        //false
+        // backgroundColor:"#F8BCBC",
+        
+        //     //both
+        //     borderWidth:"0",
+        //     opacity:"0.5",
     }
+    
     const all_answers_elements = all_answers.map(
         answer => 
             <button
@@ -17,9 +26,16 @@ export default function Question(props){
                 key={nanoid()}
                 answertoquestion={id}
                 onClick={(e)=>{
-                    // console.log(e.target.innerText,id)
                     props.setAnswer(prevArr=> prevArr.map(q => q.id === id ? {...q,user_answer:e.target.innerText} : q ))
                 }}
+                style={props.gameState === "test" ? (props.questionData.user_answer === answer ? clickedStyles : {}) : (
+                    props.questionData.correct_answer === answer ?
+                        {backgroundColor:"#94D7A2",borderWidth:"0"} : 
+                        ( answer === props.questionData.user_answer ? {borderWidth:"0",opacity:"0.5",backgroundColor:"#F8BCBC"} : {opacity:"0.5"})
+                )}
+                // style={
+                //     if(props.gameState === "test"){props.questionData.user_answer === answer ? clickedStyles : {}}
+                // }
             >
                 {answer}
             </button>
