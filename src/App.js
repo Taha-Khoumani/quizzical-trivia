@@ -58,16 +58,16 @@ export default function App() {
         <p>Develop your general knowledge, all while having fun ;)</p>
         <form>
           <h3>Chose your category:</h3>
-          <input type="radio" value="anime" id="anime" name="category" onChange={()=>{setCategory("anime")}} checked={category === "anime"}/>
-          <label htmlFor="anime">Anime</label><br />
-          <input type="radio" value="games" id="games" name="category" onChange={()=>{setCategory("games")}} checked={category === "games"} />
-          <label htmlFor="games">Games</label><br />
           <input type="radio" value="all" id="all" name="category" onChange={()=>{setCategory("all")}} checked={category === "all"} />
           <label htmlFor="all">All</label><br />
           <input type="radio" value="cs" id="cs" name="category" onChange={()=>{setCategory("cs")}} checked={category === "cs"} />
           <label htmlFor="cs">Computer Science</label><br />
           <input type="radio" value="math" id="math" name="category" onChange={()=>{setCategory("math")}} checked={category === "math"} />
           <label htmlFor="math">Math</label><br />
+          <input type="radio" value="games" id="games" name="category" onChange={()=>{setCategory("games")}} checked={category === "games"} />
+          <label htmlFor="games">Games</label><br />
+          <input type="radio" value="anime" id="anime" name="category" onChange={()=>{setCategory("anime")}} checked={category === "anime"}/>
+          <label htmlFor="anime">Anime</label><br />
         </form>
         <button 
           onClick={handleClickLandingPage}
